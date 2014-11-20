@@ -1,12 +1,25 @@
 #include <string>
 #include <iostream>
 #include <algorithm>//utility
+
+//answer:http://blog.csdn.net/chen895281773/article/details/12357703
+
 using namespace std;
 class Solution {
 public:
     string getPermutation(int n, int k) {
 		string s= generateNs(n);
-		 Permutation(s,k);
+		int m =1;
+		for(int r=1;m<s.size();m++)	//(m-1)!<k<m!	s[size-m]之后排k次！
+		{
+			if(k>r)
+			{
+				r*=m;
+			}
+			else{break;}
+		}
+		string sub = s.substr(0,m-1);
+		 Permutation(sub,k);
 		 return result;
     }
 	string generateNs(int n)
@@ -54,7 +67,7 @@ int main()
 	Solution s;
 //	int n =3;
 //	for(int i=0;i<n;i++)
-	//cout << s.getPermutation(n,i);
-		cout << s.getPermutation(9,200000);
+	// s.getPermutation(n,i);
+	cout <<s.getPermutation(4,5);
 	return 0;
 }
