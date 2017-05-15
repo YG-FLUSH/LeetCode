@@ -1,0 +1,15 @@
+
+objects=main.o utillist.o
+
+utillist.o: ../utils/utillist.h ../utils/utillist.cpp
+	g++ -c utillist.cpp -o utillist.o
+
+main.o: main.o utillist.h
+	g++ -Ic ../utils/ -o main.o
+
+install: $(objects)
+	g++ -I ../utils/ $(objects) -o main
+
+clean:
+	rm main $(objects)
+
