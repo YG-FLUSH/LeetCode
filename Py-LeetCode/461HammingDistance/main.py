@@ -10,6 +10,7 @@ class Solution(object):
         :type y: int
         :rtype: int
         """
+        return bin(x^y).count("1")
         x = list(bin(x).replace("0b", ""))
         x.reverse()
         y = list(bin(y).replace("0b", ""))
