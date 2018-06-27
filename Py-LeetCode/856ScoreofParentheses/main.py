@@ -42,6 +42,6 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    S = "(()(()))"
+    S = "(()(()))((()))"
     # S = "()()()"
     print Solution().scoreOfParentheses(S)
